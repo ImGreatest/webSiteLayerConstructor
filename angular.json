@@ -15,6 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
+
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/web-site-layer-constructor",
@@ -30,6 +31,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "src/styles.less"
             ],
             "scripts": []
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

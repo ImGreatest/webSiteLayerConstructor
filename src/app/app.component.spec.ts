@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'webSiteLayerConstructor' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('webSiteLayerConstructor');
+    expect(app.projectNameTitle).toEqual('webSiteLayerConstructor');
   });
 
   it('should render title', () => {

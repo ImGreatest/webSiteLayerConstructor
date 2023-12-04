@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, RouterOutlet} from '@angular/router';
+import {TuiRootModule} from "@taiga-ui/core";
+import {BrowserModule} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterModule, RouterOutlet, TuiRootModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.less'
 })
 export class AppComponent {
-  title = 'webSiteLayerConstructor';
+  projectNameTitle = 'webSiteLayerConstructor';
+  protected readonly String = String;
 }
