@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "webSiteLayerConstructor": {
+    "pages": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,10 +15,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/web-site-layer-constructor",
+            "outputPath": "dist/pages",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -28,14 +27,33 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              }
             ],
             "styles": [
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-              "src/styles.less"
+              "node_modules/@taiga-ui/styles/taiga-ui-global.less",
+              "src/styles.less",
+              "node_modules/grapesjs/dist/css/grapes.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/grapesjs/dist/grapes.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "webSiteLayerConstructor:build:production"
+              "buildTarget": "pages:build:production"
             },
             "development": {
-              "buildTarget": "webSiteLayerConstructor:build:development"
+              "buildTarget": "pages:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "webSiteLayerConstructor:build"
+            "buildTarget": "pages:build"
           }
         },
         "test": {
@@ -102,6 +120,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "cae524b2-997d-4b5e-9325-3bd918a34288"
   }
 }
